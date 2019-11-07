@@ -9,7 +9,7 @@ import java.util.List;
 
 public class InventoryPage {
     private WebDriver driver;
-    private static String url = "https://www.saucedemo.com/inventory.html";
+    private static String url = "";
 
     public static InventoryPage visit(WebDriver driver) {
         driver.get(url);
@@ -20,21 +20,4 @@ public class InventoryPage {
         this.driver = driver;
     }
 
-    public Boolean onPage() {
-        return driver.getCurrentUrl().equals(url);
-    }
-
-    public WebElement getInventoryItem(String product) {
-        List<WebElement> items = driver.findElements(By.className("inventory_item_label"));
-        for (WebElement item : items) {
-            if(item.getText().contains(product)) {
-                return item.findElement(By.tagName("a"));
-            }
-        }
-        return null;
-    }
-
-    public void selectProduct(Product product) {
-        getInventoryItem(product.getName()).click();
-    }
 }
