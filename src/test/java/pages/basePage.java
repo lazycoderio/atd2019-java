@@ -5,11 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static test.config.Config.baseUrl;
+import static Config.Config.baseUrl;
 
 
 class BasePage {
-    private WebDriver driver;
+    protected WebDriver driver;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -53,5 +53,9 @@ class BasePage {
             return false;
         }
         return true;
+    }
+
+    public void goTo(String url){
+        driver.get(url);
     }
 }

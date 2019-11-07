@@ -1,0 +1,14 @@
+image:
+  file: Dockerfile
+
+tasks:
+  - init: mvn clean install
+
+
+ports:
+  - port: 6080
+    onOpen: open-browser
+  - port: 5900
+    onOpen: ignore
+  - port: 35900
+    onOpen: ignore
